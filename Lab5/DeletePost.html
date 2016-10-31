@@ -1,0 +1,26 @@
+<html>
+    <head>
+    </head>
+
+    <body>
+        <form id="form1" name="form1" method="POST" ACTION="DeletePost.php">
+	<?php
+		$mysqli = new mysqli("mysql.eecs.ku.edu", "ddouglas", "Password123!", "ddouglas");
+		$query = "SELECT post_id, content, author_id FROM Posts ORDER BY author_id";
+		$table = "<center><table border='1'><th>Posts</th><th>Authors</th><th>Delete</th>";
+
+		if($result = $mysqli->query($query)){
+			if($count = $result->num_rows){
+				while($rows = $result->fetch_assoc()){
+					$table.= '<tr><td>' . $rows['content'] . '</td>' . '<td>' . $rows['author_id'] . '</td>'
+					. '<td>' . '<input type="checkbox" name="check_list[]" value="'.$rows['post_id'].'">' . '</td></tr>';
+				}
+			}
+		}
+		$table.="</table></center>";
+		echo $table;
+	?>
+	<center><button type="submit" name="Submit1">Submit</button></center>
+        </form>
+    </body>
+</html>

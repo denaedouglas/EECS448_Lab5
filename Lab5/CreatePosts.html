@@ -1,0 +1,26 @@
+ 
+<html>
+    <head>
+	<script>
+            function checkText(){
+		var check = document.getElementById("data").value;
+		if(check == ''){
+			alert("Please type a post");
+			return false;
+		}
+		return true;
+	    }
+        </script>
+    </head>
+    
+    <body>
+        <form id="form1" method="POST" ACTION="CreatePosts.php" onsubmit="return checkText();">
+            <center>
+                Username:
+                <input type="text" id="user" name="userid" style="margin-top: 300px"><br>
+                <textarea id="data" name="text" style="width: 200px; height: 150px" rows="10" cols="80" maxlength="140"></textarea><br>
+                <button type="submit" id="submit1">Submit</button>
+            </center>
+        </form>
+    </body>
+</html> 

@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script>
+            function checkText(){
+		var check = document.getElementById("user").value;
+		if(check == ''){
+			alert("Please input a username");
+			return false;
+		}
+		return true;
+	    }
+        </script>
+    </head>
+    
+    <body>
+        <form id="form1" method="POST" ACTION="CreateUser.php" onsubmit="return checkText();">
+            <center>
+                Username:
+                <input type="text" id="user" name="userid" style="margin-top: 400px">
+                <button type="submit" id="submit1">Submit</button>
+            </center>
+        </form>
+    </body>
+</html>    
